@@ -1,7 +1,18 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url(./assets/images/background-img.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 #upper-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 1rem;
 }
 #seven-day-forecast-container {
   display: grid;
@@ -12,4 +23,16 @@
   display: none;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
+}
+#seven-day-forecast-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.weekly,
+.hourly {
+  height: 6rem;
+  width: 6rem;
+  background-color: black;
+  margin: 1rem;
 }
