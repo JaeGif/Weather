@@ -5,20 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/dist/style.css" />
+    <link rel="stylesheet" href="/dist/images.css" />
     <script src="/dist/main.js"></script>
     <title>Weather</title>
   </head>
   <body>
     <main id="upper-container">
       <div id="daily-forecast-container">
-        <div id="display_description"><h1>Description</h1></div>
-        <div id="display_city"><h2>City</h2></div>
-        <div id="display_date"><h4>Date</h4></div>
-        <div id="display_time"><h4>Time</h4></div>
-        <div id="display_temperature"><h4>Temperature</h4></div>
-        <div id="display_F"><h5>Imperial Units</h5></div>
-        <div id="display_C"><h5>Metric Units</h5></div>
-        <div id="display_icon"><img src="./assets/svg/blizzard.svg" /></div>
+        <div id="display_description"><h1>Heavy Rain</h1></div>
+        <div id="display_city"><h2>San Francisco</h2></div>
+        <div id="display_date">
+          <h4>
+            Wednesday, 17th Aug '22 <br />
+            9:22pm
+          </h4>
+        </div>
+        <div id="display_temperature">
+          <p>68</p>
+          <img
+            class="current_temperature"
+            src="./assets/svg/degree-fahrenheit.svg"
+          />
+        </div>
+        <div class="units-container" id="display_F">
+          <h5>Imperial</h5>
+          <img class="units" src="./assets/svg/degree-fahrenheit.svg" />
+        </div>
+        <div class="units-container" id="display_C">
+          <h5>Metric</h5>
+          <img class="units" src="./assets/svg/degree-celsius.svg" />
+        </div>
+        <div id="display_icon">
+          <img class="current_icon" src="./assets/svg/heavy-rain-2.svg" />
+        </div>
         <div id="search-container">
           <input type="text" name="search" placeholder="Search Location ..." />
           <button><img /></button>
@@ -26,25 +45,35 @@
       </div>
 
       <div id="today-forecast-details-container">
-        <div>
-          Feels Like
-          <div>Icon</div>
-          <div>Info</div>
+        <div class="details">
+          <img class="details_icons" src="./assets/svg/thermometer-2.svg" />
+          <div>
+            <h4>Feels Like</h4>
+            <p class="details_values">
+              73 <img class="units" src="./assets/svg/degree-fahrenheit.svg" />
+            </p>
+          </div>
         </div>
-        <div>
-          Humidity
-          <div>Icon</div>
-          <div>Info</div>
+        <div class="details">
+          <img class="details_icons" src="./assets/svg/drop-percentage.svg" />
+          <div>
+            <h4>Humidity</h4>
+            <p class="details_values">25%</p>
+          </div>
         </div>
-        <div>
-          Chance of Rain
-          <div>Icon</div>
-          <div>Info</div>
+        <div class="details">
+          <img class="details_icons" src="./assets/svg/drop-cloud.svg" />
+          <div>
+            <h4>Chance of Rain</h4>
+            <p class="details_values">4%</p>
+          </div>
         </div>
-        <div>
-          Wind Speed
-          <div>Icon</div>
-          <div>Info</div>
+        <div class="details">
+          <img class="details_icons" src="./assets/svg/wind-cloud.svg" />
+          <div>
+            <h4>Wind Speed</h4>
+            <p class="details_values">12 mph</p>
+          </div>
         </div>
       </div>
     </main>
