@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 body {
   height: 100vh;
@@ -42,6 +44,31 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+}
+#search-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+input,
+input:focus {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  color: #ffffff;
+}
+
+button {
+  width: 1rem;
+  height: 1rem;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url(./assets/svg/compass.svg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .details {
   display: flex;
