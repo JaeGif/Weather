@@ -38,10 +38,17 @@
         <div id="display_icon">
           <img class="current_icon" src="./assets/svg/heavy-rain-2.svg" />
         </div>
-        <div id="search-container">
-          <input type="text" name="search" placeholder="Search Location ..." />
-          <button type="button"></button>
-        </div>
+
+        <form id="search-container">
+          <input
+            type="text"
+            name="city"
+            placeholder="Search Location ..."
+            autocomplete="home city"
+            required
+          />
+          <button type="submit"></button>
+        </form>
       </div>
 
       <div id="today-forecast-details-container">
