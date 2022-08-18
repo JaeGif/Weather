@@ -40,6 +40,7 @@ async function fetchWeather(location = 'New York', units = 'imperial') {
   );
   const dataJSON = await response.json();
   console.log(dataJSON);
+  return dataJSON;
 }
 
 export { fetchWeather };
