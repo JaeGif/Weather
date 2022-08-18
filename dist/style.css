@@ -42,6 +42,10 @@ body {
   align-items: center;
   justify-content: flex-start;
   height: max-content;
+  text-align: center;
+}
+#daily-units {
+  height: max-content;
 }
 #display_C {
   display: none;

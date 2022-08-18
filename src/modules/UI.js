@@ -20,14 +20,24 @@ function updateUnitsUI(units) {
   const temperatureNodes = document.getElementsByClassName('units');
   const smallTemperatureNodes = document.getElementsByClassName('small_units');
 
+  const windSpeedUnit = document.getElementById('speed-units');
+
   if (units === 'imperial') {
     for (let i = 0; i < temperatureNodes.length; i++) {
       temperatureNodes[i].innerHTML = `&#8457`;
     }
+    for (let j = 0; j < smallTemperatureNodes.length; j++) {
+      smallTemperatureNodes[j].innerHTML = `&#8457`;
+    }
+    windSpeedUnit.textContent = 'mph';
   } else if (units === 'metric') {
     for (let i = 0; i < temperatureNodes.length; i++) {
       temperatureNodes[i].innerHTML = `&#8451;`;
     }
+    for (let j = 0; j < smallTemperatureNodes.length; j++) {
+      smallTemperatureNodes[j].innerHTML = `&#8451;`;
+    }
+    windSpeedUnit.textContent = 'm/s';
   }
 }
 /**
