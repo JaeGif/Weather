@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/dist/style.css" />
-    <link rel="stylesheet" href="/dist/images.css" />
+    <link rel="stylesheet" href="/dist/assets.css" />
     <script src="/dist/main.js"></script>
     <title>Weather</title>
   </head>
@@ -56,7 +56,7 @@
           <img class="details_icons" src="./assets/svg/thermometer-2.svg" />
           <div>
             <h4>Feels Like</h4>
-            <p class="details_values">
+            <p>
               73 <img class="units" src="./assets/svg/degree-fahrenheit.svg" />
             </p>
           </div>
@@ -84,24 +84,182 @@
         </div>
       </div>
     </main>
+    <div id="button-container">
+      <button class="change-forecast">Daily</button>
+      <button class="change-forecast">Hourly</button>
+    </div>
     <div id="seven-day-forecast-container">
-      <div class="weekly"></div>
-      <div class="weekly"></div>
-      <div class="weekly"></div>
-      <div class="weekly"></div>
-      <div class="weekly"></div>
-      <div class="weekly"></div>
-      <div class="weekly"></div>
+      <div class="weekly">
+        <h3>Monday</h3>
+        <p>
+          17
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <p class="daily-low-temp">
+          9
+          <img
+            class="small_units"
+            src="../dist/assets/svg/degree-fahrenheit.svg"
+          />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="weekly">
+        <h3>Tuesday</h3>
+        <p>
+          18
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <p class="daily-low-temp">
+          10
+          <img
+            class="small_units"
+            src="../dist/assets/svg/degree-fahrenheit.svg"
+          />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="weekly">
+        <h3>Wednesday</h3>
+        <p>
+          21
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <p class="daily-low-temp">
+          17
+          <img
+            class="small_units"
+            src="../dist/assets/svg/degree-fahrenheit.svg"
+          />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="weekly">
+        <h3>Thursday</h3>
+        <p>
+          22
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <p class="daily-low-temp">
+          18
+          <img
+            class="small_units"
+            src="../dist/assets/svg/degree-fahrenheit.svg"
+          />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="weekly">
+        <h3>Friday</h3>
+        <p>
+          13
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <p class="daily-low-temp">
+          5
+          <img
+            class="small_units"
+            src="../dist/assets/svg/degree-fahrenheit.svg"
+          />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="weekly">
+        <h3>Saturday</h3>
+        <p>
+          11
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <p class="daily-low-temp">
+          -2
+          <img
+            class="small_units"
+            src="../dist/assets/svg/degree-fahrenheit.svg"
+          />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="weekly">
+        <h3>Sunday</h3>
+        <p>
+          -100
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <p class="daily-low-temp">
+          45
+          <img
+            class="small_units"
+            src="../dist/assets/svg/degree-fahrenheit.svg"
+          />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
     </div>
     <div id="hourly-forecast-container">
-      <div class="hourly"></div>
-      <div class="hourly"></div>
-      <div class="hourly"></div>
-      <div class="hourly"></div>
-      <div class="hourly"></div>
-      <div class="hourly"></div>
-      <div class="hourly"></div>
-      <div class="hourly"></div>
+      <div class="hourly">
+        <h3>1 pm</h3>
+        <p>
+          13
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="hourly">
+        <h3>2 pm</h3>
+        <p>
+          13
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="hourly">
+        <h3>3 pm</h3>
+        <p>
+          13
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="hourly">
+        <h3>4 pm</h3>
+        <p>
+          13
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="hourly">
+        <h3>5 pm</h3>
+        <p>
+          13
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="hourly">
+        <h3>6 pm</h3>
+        <p>
+          13
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="hourly">
+        <h3>7 pm</h3>
+        <p>
+          13
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
+      <div class="hourly">
+        <h3>8 pm</h3>
+        <p>
+          13
+          <img class="units" src="../dist/assets/svg/degree-fahrenheit.svg" />
+        </p>
+        <img class="details_icons" src="./assets/svg/blizzard.svg" />
+      </div>
     </div>
   </body>
 </html>
