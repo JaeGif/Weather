@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/dist/style.css" />
     <link rel="stylesheet" href="/dist/assets.css" />
-    <script src="/dist/main.js"></script>
+    <script type="module" src="../src/index.js" defer></script>
     <title>Weather</title>
   </head>
   <body>
     <main id="upper-container">
       <div id="daily-forecast-container">
-        <div id="display_description"><h1>Heavy Rain</h1></div>
-        <div id="display_city"><h2>San Francisco</h2></div>
+        <div id="display_description"><h1 id="day-weather"></h1></div>
+        <div id="display_city"><h2 id="city-name"></h2></div>
         <div id="display_date">
-          <h4>
+          <h4 id="todays-date">
             Wednesday, 17th Aug '22 <br />
             9:22pm
           </h4>
         </div>
         <div id="display_temperature">
-          <p>68</p>
+          <p id="day-temp"></p>
           <img
             class="current_temperature"
             src="./assets/svg/degree-fahrenheit.svg"
@@ -47,7 +47,7 @@
             autocomplete="home city"
             required
           />
-          <button type="submit"></button>
+          <button id="submit" type="button"></button>
         </form>
       </div>
 
@@ -56,30 +56,40 @@
           <img class="details_icons" src="./assets/svg/thermometer-2.svg" />
           <div>
             <h4>Feels Like</h4>
-            <p>
-              73 <img class="units" src="./assets/svg/degree-fahrenheit.svg" />
-            </p>
+            <div class="detail-containers">
+              <p id="feels-like" class="details_values"></p>
+              <img class="units" src="./assets/svg/degree-fahrenheit.svg" />
+            </div>
           </div>
         </div>
         <div class="details">
           <img class="details_icons" src="./assets/svg/drop-percentage.svg" />
           <div>
             <h4>Humidity</h4>
-            <p class="details_values">25%</p>
+            <div class="detail-containers">
+              <p id="humidity" class="details_values"></p>
+              <p>%</p>
+            </div>
           </div>
         </div>
         <div class="details">
-          <img class="details_icons" src="./assets/svg/drop-cloud.svg" />
+          <img class="details_icons" src="./assets/svg/mist.svg" />
           <div>
-            <h4>Chance of Rain</h4>
-            <p class="details_values">4%</p>
+            <h4>Visibility</h4>
+            <div class="detail-containers">
+              <p id="visibility" class="details_values"></p>
+              <p>m</p>
+            </div>
           </div>
         </div>
         <div class="details">
           <img class="details_icons" src="./assets/svg/wind-cloud.svg" />
           <div>
             <h4>Wind Speed</h4>
-            <p class="details_values">12 mph</p>
+            <div class="detail-containers">
+              <p id="wind-speed" class="details_values"></p>
+              <p>mph</p>
+            </div>
           </div>
         </div>
       </div>
