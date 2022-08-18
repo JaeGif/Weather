@@ -32,6 +32,8 @@
   cod: 200
 } */
 
+import { UnitsManager, SearchManager, updateUI, updateUnitsUI } from './UI.js';
+import { capitalize } from './utilities.js';
 // units = 'imperial / metric
 async function fetchWeather(location = 'New York', units = 'imperial') {
   const response = await fetch(
@@ -42,5 +44,22 @@ async function fetchWeather(location = 'New York', units = 'imperial') {
   console.log(dataJSON);
   return dataJSON;
 }
+async function fetchUpdate() {
+  let locationQuery = document.querySelector('input').value;
+  if (locationQuery === '') {
+    locationQuery = undefined;
+  } else {
+    locationQuery = capitalize(locationQuery);
+    SearchManager.setLastSearch(locationQuery);
+  }
+  const data = await fetchWeather(locationQuery);
+  updateUI(data);
+}
 
-export { fetchWeather };
+async function unitChangeUpdate(lastLocation, units) {
+  const data = await fetchWeather(lastLocation, units);
+  updateUI(data);
+  updateUnitsUI(UnitsManager.getUnits());
+}
+
+export { fetchWeather, fetchUpdate, unitChangeUpdate };

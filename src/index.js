@@ -1,4 +1,8 @@
-import { fetchWeather } from './modules/apiCalls.js';
+import {
+  fetchWeather,
+  fetchUpdate,
+  unitChangeUpdate,
+} from './modules/apiCalls.js';
 import {
   UnitsManager,
   SearchManager,
@@ -7,6 +11,7 @@ import {
 } from './modules/UI.js';
 
 window.onload = fetchUpdate();
+
 const addListeners = (() => {
   const submitButton = document.querySelector('#submit');
   const toMetricButton = document.getElementById('display_F');
@@ -29,26 +34,3 @@ const addListeners = (() => {
     fetchUpdate();
   });
 })();
-
-async function fetchUpdate() {
-  let locationQuery = document.querySelector('input').value;
-  if (locationQuery === '') {
-    locationQuery = undefined;
-  } else {
-    locationQuery = capitalize(locationQuery);
-    SearchManager.setLastSearch(locationQuery);
-  }
-  const data = await fetchWeather(locationQuery);
-  updateUI(data);
-}
-
-async function unitChangeUpdate(lastLocation, units) {
-  const data = await fetchWeather(lastLocation, units);
-  updateUI(data);
-  updateUnitsUI(UnitsManager.getUnits());
-}
-
-function capitalize(string) {
-  string.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase());
-  return string;
-}
