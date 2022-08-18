@@ -34,6 +34,7 @@ body {
   align-items: center;
   text-align: center;
   gap: 0.5rem;
+  cursor: pointer;
 }
 #display_temperature {
   font-size: 5rem;
