@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: url(./assets/images/background-img.jpg);
+  background-image: url(./assets/images/grey-background.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -20,6 +20,13 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 4rem;
+}
+#daily-forecast-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
 }
 .units-container {
   display: flex;
@@ -78,25 +85,47 @@ button {
 .details_values {
   font-size: 2rem;
 }
-#seven-day-forecast-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
+.daily-low-temp {
+  font-size: 0.75rem;
 }
+
 #hourly-forecast-container {
-  display: none;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  margin-left: 4rem;
+  margin-bottom: 4rem;
+  margin-right: 4rem;
+  gap: 5px;
 }
 #seven-day-forecast-container {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+  gap: 5px;
+  margin-left: 4rem;
+  margin-bottom: 4rem;
+  margin-right: 4rem;
+}
+#button-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
+  gap: 1rem;
+  margin-left: 4rem;
+}
+.change-forecast {
+  background-image: none;
+  width: auto;
+  height: 1rem;
+  color: #ffffff;
+  border: none;
 }
 .weekly,
 .hourly {
   height: 5rem;
   width: 5rem;
-  background-color: white;
-  margin: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.25rem;
 }

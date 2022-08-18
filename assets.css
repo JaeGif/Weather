@@ -1,6 +1,9 @@
 .units {
   height: 1rem;
 }
+.small_units {
+  height: 0.75rem;
+}
 .current_icon {
   height: 6rem;
 }
