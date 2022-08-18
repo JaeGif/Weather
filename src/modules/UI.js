@@ -16,6 +16,20 @@ function updateUI(cityData) {
   city.textContent = cityData.name;
 }
 
+function updateUnitsUI(units) {
+  const temperatureNodes = document.getElementsByClassName('units');
+  const smallTemperatureNodes = document.getElementsByClassName('small_units');
+
+  if (units === 'imperial') {
+    for (let i = 0; i < temperatureNodes.length; i++) {
+      temperatureNodes[i].innerHTML = `&#8457`;
+    }
+  } else if (units === 'metric') {
+    for (let i = 0; i < temperatureNodes.length; i++) {
+      temperatureNodes[i].innerHTML = `&#8451;`;
+    }
+  }
+}
 /**
  * @return {string} date
  */
@@ -24,5 +38,31 @@ function todaysDate() {
 }
 function matchWeatherToSVG(cityData) {}
 
-class UnitsManager {}
-export { updateUI };
+class UnitsManager {
+  static units = 'imperial';
+
+  static getUnits() {
+    return UnitsManager.units;
+  }
+  /**
+   * @param {string} unitString imperial or metric
+   */
+  static setUnits(unitString) {
+    UnitsManager.units = unitString;
+  }
+}
+
+class SearchManager {
+  static lastSearch = 'New York';
+  static getLastSearch() {
+    return SearchManager.lastSearch;
+  }
+
+  /**
+   * @param {string} search city capitalized
+   */
+  static setLastSearch(search) {
+    SearchManager.lastSearch = search;
+  }
+}
+export { updateUI, updateUnitsUI, UnitsManager, SearchManager };
