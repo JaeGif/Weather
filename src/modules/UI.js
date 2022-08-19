@@ -11,13 +11,13 @@ function updateUI(cityData) {
   const date = document.getElementById('todays-date');
 
   date.innerHTML = todaysDate();
-  windSpeed.textContent = cityData.wind.speed;
-  visibility.textContent = cityData.visibility;
-  humidity.textContent = cityData.main.humidity;
-  feelsLikeTemperature.textContent = cityData.main.feels_like;
-  temperature.textContent = cityData.main.temp;
-  todayWeather.textContent = cityData.weather[0].description;
-  city.textContent = cityData.name;
+  windSpeed.textContent = cityData.current.wind_speed;
+  visibility.textContent = cityData.current.visibility;
+  humidity.textContent = cityData.current.humidity;
+  feelsLikeTemperature.textContent = cityData.current.feels_like;
+  temperature.textContent = cityData.current.temp;
+  todayWeather.textContent = cityData.current.weather[0].description;
+  city.textContent = SearchManager.getLastSearch();
 }
 
 function updateUnitsUI(units) {
