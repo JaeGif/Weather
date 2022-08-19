@@ -36,6 +36,9 @@ body {
   gap: 0.5rem;
   cursor: pointer;
 }
+#day-weather {
+  text-transform: capitalize;
+}
 #display_temperature {
   font-size: 5rem;
   display: flex;
