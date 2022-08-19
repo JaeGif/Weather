@@ -38,8 +38,9 @@ function todaysDate() {
   const yearFull = String(dateData.getFullYear());
   const yearAbbreviated = yearFull[2] + yearFull[3];
   const hour24 = dateData.getHours();
-  const min = dateData.getMinutes();
+  let min = String(dateData.getMinutes());
 
+  // correct date suffix matching
   if (String(date).slice(-1) == 1) {
     abbr = 'st';
   } else if (String(date).slice(-1) == 2) {
@@ -48,6 +49,11 @@ function todaysDate() {
     abbr = 'rd';
   } else {
     abbr = 'th';
+  }
+
+  // correct time
+  if (min.length < 2) {
+    min = '0' + min;
   }
 
   const line1Date =
