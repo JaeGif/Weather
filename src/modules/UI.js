@@ -1,4 +1,4 @@
-import { capitalize, todaysDate } from './utilities.js';
+import { todaysDate } from './utilities.js';
 
 function updateUI(cityData) {
   const city = document.getElementById('city-name');

@@ -56,4 +56,4 @@ async function fetchLatLon(city = SearchManager.getLastSearch()) {
   const dataJSON = response.json();
   return dataJSON;
 }
-export { fetchWeather, fetchUpdate, unitChangeUpdate };
+export { fetchUpdate, unitChangeUpdate };

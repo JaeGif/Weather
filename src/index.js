@@ -1,14 +1,5 @@
-import {
-  fetchWeather,
-  fetchUpdate,
-  unitChangeUpdate,
-} from './modules/apiCalls.js';
-import {
-  UnitsManager,
-  SearchManager,
-  updateUI,
-  updateUnitsUI,
-} from './modules/UI.js';
+import { fetchUpdate, unitChangeUpdate } from './modules/apiCalls.js';
+import { UnitsManager, SearchManager } from './modules/UI.js';
 
 window.onload = fetchUpdate();
 
