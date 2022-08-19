@@ -20,6 +20,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 4rem;
+  margin-bottom: 0;
 }
 #daily-forecast-container {
   display: flex;
