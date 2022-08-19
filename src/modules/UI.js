@@ -9,7 +9,9 @@ function updateUI(cityData) {
   const visibility = document.getElementById('visibility');
   const windSpeed = document.getElementById('wind-speed');
   const date = document.getElementById('todays-date');
+  const currentWeatherIcon = document.querySelector('.current_icon');
 
+  currentWeatherIcon.src = matchWeatherToSVG(cityData.current.weather[0].id);
   date.innerHTML = todaysDate(cityData);
   windSpeed.textContent = cityData.current.wind_speed;
   visibility.textContent = cityData.current.visibility;
@@ -17,6 +19,7 @@ function updateUI(cityData) {
   feelsLikeTemperature.textContent = cityData.current.feels_like;
   temperature.textContent = cityData.current.temp;
   todayWeather.textContent = cityData.current.weather[0].description;
+
   city.textContent = SearchManager.getLastSearch();
 }
 
@@ -99,6 +102,21 @@ function updateWeeklyUI(cityData) {
   n7High.textContent = cityData.daily[7].temp.max;
   const n7Low = document.getElementById('n-7-low');
   n7Low.textContent = cityData.daily[7].temp.min;
+
+  const n1dailyWeatherSVG = document.getElementById('n-1-svg');
+  n1dailyWeatherSVG.src = matchWeatherToSVG(cityData.daily[1].weather[0].id);
+  const n2dailyWeatherSVG = document.getElementById('n-2-svg');
+  n2dailyWeatherSVG.src = matchWeatherToSVG(cityData.daily[2].weather[0].id);
+  const n3dailyWeatherSVG = document.getElementById('n-3-svg');
+  n3dailyWeatherSVG.src = matchWeatherToSVG(cityData.daily[3].weather[0].id);
+  const n4dailyWeatherSVG = document.getElementById('n-4-svg');
+  n4dailyWeatherSVG.src = matchWeatherToSVG(cityData.daily[4].weather[0].id);
+  const n5dailyWeatherSVG = document.getElementById('n-5-svg');
+  n5dailyWeatherSVG.src = matchWeatherToSVG(cityData.daily[5].weather[0].id);
+  const n6dailyWeatherSVG = document.getElementById('n-6-svg');
+  n6dailyWeatherSVG.src = matchWeatherToSVG(cityData.daily[6].weather[0].id);
+  const n7dailyWeatherSVG = document.getElementById('n-7-svg');
+  n7dailyWeatherSVG.src = matchWeatherToSVG(cityData.daily[7].weather[0].id);
 }
 
 function updateHourlyUI(cityData) {
@@ -122,10 +140,8 @@ function updateHourlyUI(cityData) {
     hourIndex.push(sum);
   }
 
-  console.log(hourIndex[0]);
   const h1 = document.getElementById('h-1');
   h1.textContent = hourIndex[0] + ':00';
-  console.log(h1.textContent);
   const h2 = document.getElementById('h-2');
   h2.textContent = hourIndex[1] + ':00';
   const h3 = document.getElementById('h-3');
@@ -185,7 +201,57 @@ function updateUnitsUI(units) {
   }
 }
 
-function matchWeatherToSVG(cityData) {}
+function matchWeatherToSVG(weatherCode) {
+  let URL = '';
+  /*
+  const n1dailyWeatherURL = weatherCode.daily[1].weather[0].id;
+  const n2dailyWeatherURL = weatherCode.daily[2].weather[0].id;
+  const n3dailyWeatherURL = weatherCode.daily[3].weather[0].id;
+  const n4dailyWeatherURL = weatherCode.daily[4].weather[0].id;
+  const n5dailyWeatherURL = weatherCode.daily[5].weather[0].id;
+  const n6dailyWeatherURL = weatherCode.daily[6].weather[0].id; */
+
+  switch (String(weatherCode)[0]) {
+    case '2':
+      URL = './assets/svg/severe-thunderstorm.svg';
+    case '3':
+      URL = './assets/svg/drizzle.svg';
+    case '5':
+      URL = './assets/svg/rain-1.svg';
+    case '6':
+      if (
+        String(weatherCode) === '612' ||
+        String(weatherCode) === '613' ||
+        String(weatherCode) === '615' ||
+        String(weatherCode) === '616'
+      ) {
+        URL = './assets/svg/rain-and-snow.svg';
+      } else {
+        URL = './assets/svg/snow.svg';
+      }
+    case '7':
+      if (
+        String(weatherCode) === '701' ||
+        String(weatherCode) === '711' ||
+        String(weatherCode) === '721' ||
+        String(weatherCode) === '741' ||
+        String(weatherCode) === '751' ||
+        String(weatherCode) === '761' ||
+        String(weatherCode) === '731'
+      ) {
+        URL = './assets/svg/mist.svg';
+      } else {
+        URL = './assets/svg/tornado-2.svg';
+      }
+    case '8':
+      if (String(weatherCode) === '800') {
+        URL = './assets/svg/sun-horizon-1.svg';
+      } else {
+        URL = './assets/svg/mostly-cloudy-2.svg';
+      }
+  }
+  return URL;
+}
 
 class UnitsManager {
   static units = 'imperial';
