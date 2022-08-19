@@ -10,7 +10,7 @@ function updateUI(cityData) {
   const windSpeed = document.getElementById('wind-speed');
   const date = document.getElementById('todays-date');
 
-  date.innerHTML = todaysDate();
+  date.innerHTML = todaysDate(cityData);
   windSpeed.textContent = cityData.current.wind_speed;
   visibility.textContent = cityData.current.visibility;
   humidity.textContent = cityData.current.humidity;
@@ -20,49 +20,144 @@ function updateUI(cityData) {
   city.textContent = SearchManager.getLastSearch();
 }
 
-function updateWeekly(cityData) {
-  const date = new Date();
+function updateWeeklyUI(cityData) {
+  const localOffset = new Date().getTimezoneOffset() * 60;
+  const dt =
+    (cityData.current.dt + localOffset + cityData.timezone_offset) * 1000;
+  const date = new Date(dt);
   const n = date.getDay();
   let sum = 0;
-  let dayIndex = [n];
+  let dayIndex = [];
+  let count = n;
 
-  for (let i = 1; i < 6; i++) {
-    if (sum <= 6) {
-      sum = n + i;
-    } else if (sum > 6) {
-      sum = n + i - 6;
+  for (let i = 1; i < 8; i++) {
+    if (count <= 6) {
+      sum = count;
+    } else if (count > 6) {
+      sum = count - 7;
     }
+    count++;
     dayIndex.push(sum);
   }
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
 
-  let n1 = dayIndex[1];
-  let n2 = dayIndex[2];
-  let n3 = dayIndex[3];
-  let n4 = dayIndex[4];
-  let n5 = dayIndex[5];
-  let n6 = dayIndex[6];
+  const n1 = document.getElementById('n-1');
+  const n2 = document.getElementById('n-2');
+  const n3 = document.getElementById('n-3');
+  const n4 = document.getElementById('n-4');
+  const n5 = document.getElementById('n-5');
+  const n6 = document.getElementById('n-6');
+  const n7 = document.getElementById('n-7');
 
-  console.log(n, n1, n2, n3, n4, n5, n6);
-  const nHigh = cityData.daily[0].temp.max;
-  const nLow = cityData.daily[0].temp.min;
+  n1.textContent = days[dayIndex[1]];
+  n2.textContent = days[dayIndex[2]];
+  n3.textContent = days[dayIndex[3]];
+  n4.textContent = days[dayIndex[4]];
+  n5.textContent = days[dayIndex[5]];
+  n6.textContent = days[dayIndex[6]];
+  n7.textContent = days[dayIndex[0]];
 
-  const n1High = cityData.daily[1].temp.max;
-  const n1Low = cityData.daily[1].temp.min;
+  const n1High = document.getElementById('n-1-high');
+  n1High.textContent = cityData.daily[1].temp.max;
+  const n1Low = document.getElementById('n-1-low');
+  n1Low.textContent = cityData.daily[1].temp.min;
 
-  const n2High = cityData.daily[2].temp.max;
-  const n2Low = cityData.daily[2].temp.min;
+  const n2High = document.getElementById('n-2-high');
+  n2High.textContent = cityData.daily[2].temp.max;
+  const n2Low = document.getElementById('n-2-low');
+  n2Low.textContent = cityData.daily[2].temp.min;
 
-  const n3High = cityData.daily[3].temp.max;
-  const n3Low = cityData.daily[3].temp.min;
+  const n3High = document.getElementById('n-3-high');
+  n3High.textContent = cityData.daily[3].temp.max;
+  const n3Low = document.getElementById('n-3-low');
+  n3Low.textContent = cityData.daily[3].temp.min;
 
-  const n4High = cityData.daily[4].temp.max;
-  const n4Low = cityData.daily[4].temp.min;
+  const n4High = document.getElementById('n-4-high');
+  n4High.textContent = cityData.daily[4].temp.max;
+  const n4Low = document.getElementById('n-4-low');
+  n4Low.textContent = cityData.daily[4].temp.min;
 
-  const n5High = cityData.daily[5].temp.max;
-  const n5Low = cityData.daily[5].temp.min;
+  const n5High = document.getElementById('n-5-high');
+  n5High.textContent = cityData.daily[5].temp.max;
+  const n5Low = document.getElementById('n-5-low');
+  n5Low.textContent = cityData.daily[5].temp.min;
 
-  const n6High = cityData.daily[6].temp.max;
-  const n6Low = cityData.daily[6].temp.min;
+  const n6High = document.getElementById('n-6-high');
+  n6High.textContent = cityData.daily[6].temp.max;
+  const n6Low = document.getElementById('n-6-low');
+  n6Low.textContent = cityData.daily[6].temp.min;
+
+  const n7High = document.getElementById('n-7-high');
+  n7High.textContent = cityData.daily[7].temp.max;
+  const n7Low = document.getElementById('n-7-low');
+  n7Low.textContent = cityData.daily[7].temp.min;
+}
+
+function updateHourlyUI(cityData) {
+  const localOffset = new Date().getTimezoneOffset() * 60;
+  const dt =
+    (cityData.current.dt + localOffset + cityData.timezone_offset) * 1000;
+  const newDate = new Date(dt);
+  const h = newDate.getHours();
+
+  let sum = 0;
+  let hourIndex = [];
+  let count = h + 1;
+
+  for (let i = 0; i < 8; i++) {
+    if (count < 24) {
+      sum = count;
+    } else if (count >= 24) {
+      sum = count - 24;
+    }
+    count++;
+    hourIndex.push(sum);
+  }
+
+  console.log(hourIndex[0]);
+  const h1 = document.getElementById('h-1');
+  h1.textContent = hourIndex[0] + ':00';
+  console.log(h1.textContent);
+  const h2 = document.getElementById('h-2');
+  h2.textContent = hourIndex[1] + ':00';
+  const h3 = document.getElementById('h-3');
+  h3.textContent = hourIndex[2] + ':00';
+  const h4 = document.getElementById('h-4');
+  h4.textContent = hourIndex[3] + ':00';
+  const h5 = document.getElementById('h-5');
+  h5.textContent = hourIndex[4] + ':00';
+  const h6 = document.getElementById('h-6');
+  h6.textContent = hourIndex[5] + ':00';
+  const h7 = document.getElementById('h-7');
+  h7.textContent = hourIndex[6] + ':00';
+  const h8 = document.getElementById('h-8');
+  h8.textContent = hourIndex[7] + ':00';
+
+  const h1Data = document.getElementById('h-1-data');
+  const h2Data = document.getElementById('h-2-data');
+  const h3Data = document.getElementById('h-3-data');
+  const h4Data = document.getElementById('h-4-data');
+  const h5Data = document.getElementById('h-5-data');
+  const h6Data = document.getElementById('h-6-data');
+  const h7Data = document.getElementById('h-7-data');
+  const h8Data = document.getElementById('h-8-data');
+
+  h1Data.textContent = cityData.hourly[1].temp;
+  h2Data.textContent = cityData.hourly[2].temp;
+  h3Data.textContent = cityData.hourly[3].temp;
+  h4Data.textContent = cityData.hourly[4].temp;
+  h5Data.textContent = cityData.hourly[5].temp;
+  h6Data.textContent = cityData.hourly[6].temp;
+  h7Data.textContent = cityData.hourly[7].temp;
+  h8Data.textContent = cityData.hourly[8].temp;
 }
 
 function updateUnitsUI(units) {
@@ -119,4 +214,11 @@ class SearchManager {
     SearchManager.lastSearch = search;
   }
 }
-export { updateUI, updateUnitsUI, UnitsManager, SearchManager };
+export {
+  updateUI,
+  updateUnitsUI,
+  UnitsManager,
+  SearchManager,
+  updateWeeklyUI,
+  updateHourlyUI,
+};

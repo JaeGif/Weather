@@ -5,8 +5,11 @@ function capitalize(string) {
 /**
  * @return {string} date
  */
-function todaysDate() {
-  const dateData = new Date();
+function todaysDate(cityData) {
+  const localOffset = new Date().getTimezoneOffset() * 60;
+  const dt =
+    (cityData.current.dt + localOffset + cityData.timezone_offset) * 1000;
+  const dateData = new Date(dt);
   const months = [
     'Jan',
     'Feb',
