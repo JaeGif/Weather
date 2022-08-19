@@ -1,3 +1,5 @@
+import { capitalize, todaysDate } from './utilities.js';
+
 function updateUI(cityData) {
   const city = document.getElementById('city-name');
   const todayWeather = document.getElementById('day-weather');
@@ -6,7 +8,9 @@ function updateUI(cityData) {
   const humidity = document.getElementById('humidity');
   const visibility = document.getElementById('visibility');
   const windSpeed = document.getElementById('wind-speed');
+  const date = document.getElementById('todays-date');
 
+  date.innerHTML = todaysDate();
   windSpeed.textContent = cityData.wind.speed;
   visibility.textContent = cityData.visibility;
   humidity.textContent = cityData.main.humidity;
@@ -40,12 +44,7 @@ function updateUnitsUI(units) {
     windSpeedUnit.textContent = 'm/s';
   }
 }
-/**
- * @return {string} date
- */
-function todaysDate() {
-  return date;
-}
+
 function matchWeatherToSVG(cityData) {}
 
 class UnitsManager {

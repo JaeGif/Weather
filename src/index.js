@@ -16,6 +16,7 @@ const addListeners = (() => {
   const submitButton = document.querySelector('#submit');
   const toMetricButton = document.getElementById('display_F');
   const toImperialButton = document.getElementById('display_C');
+  const locationForm = document.querySelector('form');
 
   toMetricButton.addEventListener('click', () => {
     toMetricButton.style.display = 'none';
@@ -29,7 +30,12 @@ const addListeners = (() => {
     UnitsManager.setUnits('imperial');
     unitChangeUpdate(SearchManager.getLastSearch(), UnitsManager.getUnits());
   });
-
+  locationForm.addEventListener('keydown', function (e) {
+    if (e.code === 'Enter') {
+      e.preventDefault();
+      fetchUpdate();
+    }
+  });
   submitButton.addEventListener('click', () => {
     fetchUpdate();
   });

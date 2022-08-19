@@ -52,7 +52,7 @@ async function fetchUpdate() {
     locationQuery = capitalize(locationQuery);
     SearchManager.setLastSearch(locationQuery);
   }
-  const data = await fetchWeather(locationQuery);
+  const data = await fetchWeather(locationQuery, UnitsManager.getUnits());
   updateUI(data);
 }
 
