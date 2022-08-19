@@ -103,7 +103,7 @@ button {
   font-size: 0.75rem;
 }
 #hourly-forecast-container {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   margin-left: 4rem;
   margin-bottom: 4rem;
@@ -111,7 +111,7 @@ button {
   gap: 5px;
 }
 #seven-day-forecast-container {
-  display: none;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
   gap: 5px;
   margin-left: 4rem;
