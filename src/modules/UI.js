@@ -174,6 +174,23 @@ function updateHourlyUI(cityData) {
   h6Data.textContent = cityData.hourly[6].temp;
   h7Data.textContent = cityData.hourly[7].temp;
   h8Data.textContent = cityData.hourly[8].temp;
+
+  const h1HourlyWeatherSVG = document.getElementById('h-1-svg');
+  h1HourlyWeatherSVG.src = matchWeatherToSVG(cityData.hourly[1].weather[0].id);
+  const h2HourlyWeatherSVG = document.getElementById('h-2-svg');
+  h2HourlyWeatherSVG.src = matchWeatherToSVG(cityData.hourly[2].weather[0].id);
+  const h3HourlyWeatherSVG = document.getElementById('h-3-svg');
+  h3HourlyWeatherSVG.src = matchWeatherToSVG(cityData.hourly[3].weather[0].id);
+  const h4HourlyWeatherSVG = document.getElementById('h-4-svg');
+  h4HourlyWeatherSVG.src = matchWeatherToSVG(cityData.hourly[4].weather[0].id);
+  const h5HourlyWeatherSVG = document.getElementById('h-5-svg');
+  h5HourlyWeatherSVG.src = matchWeatherToSVG(cityData.hourly[5].weather[0].id);
+  const h6HourlyWeatherSVG = document.getElementById('h-6-svg');
+  h6HourlyWeatherSVG.src = matchWeatherToSVG(cityData.hourly[6].weather[0].id);
+  const h7HourlyWeatherSVG = document.getElementById('h-7-svg');
+  h7HourlyWeatherSVG.src = matchWeatherToSVG(cityData.hourly[7].weather[0].id);
+  const h8HourlyWeatherSVG = document.getElementById('h-8-svg');
+  h8HourlyWeatherSVG.src = matchWeatherToSVG(cityData.hourly[8].weather[0].id);
 }
 
 function updateUnitsUI(units) {
@@ -203,13 +220,6 @@ function updateUnitsUI(units) {
 
 function matchWeatherToSVG(weatherCode) {
   let URL = '';
-  /*
-  const n1dailyWeatherURL = weatherCode.daily[1].weather[0].id;
-  const n2dailyWeatherURL = weatherCode.daily[2].weather[0].id;
-  const n3dailyWeatherURL = weatherCode.daily[3].weather[0].id;
-  const n4dailyWeatherURL = weatherCode.daily[4].weather[0].id;
-  const n5dailyWeatherURL = weatherCode.daily[5].weather[0].id;
-  const n6dailyWeatherURL = weatherCode.daily[6].weather[0].id; */
 
   switch (String(weatherCode)[0]) {
     case '2':

@@ -1,4 +1,3 @@
-/* https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&appid={API key} */
 import {
   UnitsManager,
   SearchManager,
@@ -15,7 +14,6 @@ async function fetchWeather(latitude, longitude, units = 'imperial') {
     { mode: 'cors' }
   );
   const dataJSON = await response.json();
-  console.log(dataJSON);
   return dataJSON;
 }
 async function fetchUpdate() {
@@ -56,7 +54,6 @@ async function fetchLatLon(city = SearchManager.getLastSearch()) {
     { mode: 'cors' }
   );
   const dataJSON = response.json();
-
   return dataJSON;
 }
 export { fetchWeather, fetchUpdate, unitChangeUpdate };
