@@ -31,9 +31,10 @@ async function fetchUpdate() {
     SearchManager.setLastSearch(locationQuery);
     locationQuery = await fetchLatLon(locationQuery);
   }
+  console.log(locationQuery);
   try {
-    lat = locationQuery[0].lat;
-    lon = locationQuery[0].lon;
+    lat = locationQuery.coord.lat;
+    lon = locationQuery.coord.lon;
     errorBlock.style.display = 'none';
   } catch (error) {
     errorBlock.style.display = 'block';
@@ -47,8 +48,8 @@ async function fetchUpdate() {
 
 async function unitChangeUpdate(lastLocation, units) {
   const latLon = await fetchLatLon(lastLocation);
-  const lat = latLon[0].lat;
-  const lon = latLon[0].lon;
+  const lat = latLon.coord.lat;
+  const lon = latLon.coord.lon;
 
   const data = await fetchWeather(lat, lon, units);
   updateUI(data);
@@ -59,7 +60,7 @@ async function unitChangeUpdate(lastLocation, units) {
 
 async function fetchLatLon(location = SearchManager.getLastSearch()) {
   const response = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=a4b3f65b2dbd15c2b33875e013b2dc1b`,
+    `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=a4b3f65b2dbd15c2b33875e013b2dc1b`,
     { mode: 'cors' }
   );
   const dataJSON = response.json();
