@@ -1,4 +1,4 @@
-import { todaysDate } from './utilities.js';
+import { todaysDate, matchWeatherToSVG } from './utilities.js';
 
 function updateUI(cityData) {
   const city = document.getElementById('city-name');
@@ -216,51 +216,6 @@ function updateUnitsUI(units) {
     }
     windSpeedUnit.textContent = 'm/s';
   }
-}
-
-function matchWeatherToSVG(weatherCode) {
-  let URL = '';
-
-  switch (String(weatherCode)[0]) {
-    case '2':
-      URL = './assets/svg/severe-thunderstorm.svg';
-    case '3':
-      URL = './assets/svg/drizzle.svg';
-    case '5':
-      URL = './assets/svg/rain-1.svg';
-    case '6':
-      if (
-        String(weatherCode) === '612' ||
-        String(weatherCode) === '613' ||
-        String(weatherCode) === '615' ||
-        String(weatherCode) === '616'
-      ) {
-        URL = './assets/svg/rain-and-snow.svg';
-      } else {
-        URL = './assets/svg/snow.svg';
-      }
-    case '7':
-      if (
-        String(weatherCode) === '701' ||
-        String(weatherCode) === '711' ||
-        String(weatherCode) === '721' ||
-        String(weatherCode) === '741' ||
-        String(weatherCode) === '751' ||
-        String(weatherCode) === '761' ||
-        String(weatherCode) === '731'
-      ) {
-        URL = './assets/svg/mist.svg';
-      } else {
-        URL = './assets/svg/tornado-2.svg';
-      }
-    case '8':
-      if (String(weatherCode) === '800') {
-        URL = './assets/svg/sun-horizon-1.svg';
-      } else {
-        URL = './assets/svg/mostly-cloudy-2.svg';
-      }
-  }
-  return URL;
 }
 
 class UnitsManager {
