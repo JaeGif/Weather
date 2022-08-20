@@ -1,5 +1,7 @@
 # Weather
 [Live Server](https://jaegif.github.io/Weather/)
+
+
 Weather app to practice API calls, fetch, promises, async and await functions in JS
 
 Layout Design inspired by bscottnz
