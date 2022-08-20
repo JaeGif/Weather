@@ -31,7 +31,6 @@ async function fetchUpdate() {
     SearchManager.setLastSearch(locationQuery);
     locationQuery = await fetchLatLon(locationQuery);
   }
-  console.log(locationQuery);
   try {
     lat = locationQuery.coord.lat;
     lon = locationQuery.coord.lon;
