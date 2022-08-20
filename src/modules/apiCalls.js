@@ -59,7 +59,7 @@ async function unitChangeUpdate(lastLocation, units) {
 
 async function fetchLatLon(location = SearchManager.getLastSearch()) {
   const response = await fetch(
-    `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=a4b3f65b2dbd15c2b33875e013b2dc1b`,
+    `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=a4b3f65b2dbd15c2b33875e013b2dc1b`,
     { mode: 'cors' }
   );
   const dataJSON = response.json();
