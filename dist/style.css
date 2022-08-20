@@ -81,6 +81,15 @@ input:focus {
   outline: none;
   color: #ffffff;
 }
+input:active {
+  background-color: rgba(0, 0, 0, 0);
+}
+#error-block {
+  color: red;
+  display: none;
+  font-size: smaller;
+}
+
 button {
   width: 1rem;
   height: 1rem;

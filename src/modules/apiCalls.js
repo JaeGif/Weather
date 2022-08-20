@@ -7,6 +7,7 @@ import {
   updateHourlyUI,
 } from './UI.js';
 import { capitalize } from './utilities.js';
+
 // units = 'imperial / metric
 async function fetchWeather(latitude, longitude, units = 'imperial') {
   const response = await fetch(
@@ -18,6 +19,8 @@ async function fetchWeather(latitude, longitude, units = 'imperial') {
 }
 async function fetchUpdate() {
   let locationQuery = document.querySelector('input').value;
+  const errorBlock = document.getElementById('error-block');
+
   let lat = '';
   let lon = '';
   if (locationQuery === '') {
@@ -28,8 +31,14 @@ async function fetchUpdate() {
     SearchManager.setLastSearch(locationQuery);
     locationQuery = await fetchLatLon(locationQuery);
   }
-  lat = locationQuery[0].lat;
-  lon = locationQuery[0].lon;
+  try {
+    lat = locationQuery[0].lat;
+    lon = locationQuery[0].lon;
+    errorBlock.style.display = 'none';
+  } catch (error) {
+    errorBlock.style.display = 'block';
+  }
+
   const data = await fetchWeather(lat, lon, UnitsManager.getUnits());
   updateUI(data);
   updateWeeklyUI(data);
@@ -48,9 +57,9 @@ async function unitChangeUpdate(lastLocation, units) {
   updateUnitsUI(UnitsManager.getUnits());
 }
 
-async function fetchLatLon(city = SearchManager.getLastSearch()) {
+async function fetchLatLon(location = SearchManager.getLastSearch()) {
   const response = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=a4b3f65b2dbd15c2b33875e013b2dc1b`,
+    `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=a4b3f65b2dbd15c2b33875e013b2dc1b`,
     { mode: 'cors' }
   );
   const dataJSON = response.json();
